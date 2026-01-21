@@ -11,9 +11,9 @@ import { get, post } from "../utilities";
 
 export const UserContext = createContext(null);
 
-import Navbar from "./modules/Navbar";
-import Skeleton from "./pages/Skeleton";
-import Profile from "./pages/Profile";
+// import Navbar from "./modules/Navbar";
+// import Skeleton from "./pages/Skeleton";
+// import Profile from "./pages/Profile";
 
 /**
  * Define the "App" component
@@ -53,11 +53,7 @@ const App = () => {
 
   return (
     <UserContext.Provider value={authContextValue}>
-      {/* <Navbar
-        handleLogin={handleLogin}
-        handleLogout={handleLogout}
-        userId={userId}
-      /> */}
+      {/* <Navbar/> */}
       <Outlet />
     </UserContext.Provider>
     // <>

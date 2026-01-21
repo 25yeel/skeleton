@@ -5,7 +5,7 @@ import "../../utilities.css";
 import "./Skeleton.css";
 import { UserContext } from "../App";
 
-import Navbar from "../modules/Navbar";
+// import Navbar from "../modules/Navbar";
 
 
 const Skeleton = () => {
