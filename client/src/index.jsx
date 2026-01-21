@@ -5,7 +5,7 @@ import Skeleton from "./components/pages/Skeleton";
 import NotFound from "./components/pages/NotFound";
 
 import Profile from "./components/pages/Profile";
-import Maze from "./components/modules/Maze";
+// import Maze from "./components/modules/Maze";
 
 import {
   createBrowserRouter,
@@ -15,7 +15,7 @@ import {
 } from 'react-router-dom'
 
 import { GoogleOAuthProvider } from '@react-oauth/google';
-import Navbar from "./components/modules/Navbar";
+// import Navbar from "./components/modules/Navbar";
 
 //TODO: REPLACE WITH YOUR OWN CLIENT_ID
 const GOOGLE_CLIENT_ID = "406378486796-rpb1mha7rjuhh0h32vhjngoothur4vl8.apps.googleusercontent.com";
@@ -25,20 +25,10 @@ const router = createBrowserRouter(
     <Route errorElement={<NotFound />} element={<App />}>
       <Route path="/" element={<Skeleton />}/>
       <Route path="/profile" element={<Profile />} />
-      <Route path="/maze" element={<Maze />} />
+      {/* <Route path="/maze" element={<Maze />} /> */}
     </Route>
   )
 )
-const App = () => {
-  return (
-    <>
-      <Navbar/>
-      <div className="App-container">
-        <Outlet/>
-      </div>
-    </>
-  )
-}
 
 // renders React Component "Root" into the DOM element with ID "root"
 ReactDOM.createRoot(document.getElementById("root")).render(

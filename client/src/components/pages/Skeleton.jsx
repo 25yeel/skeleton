@@ -25,8 +25,7 @@ const Skeleton = () => {
         <GoogleLogin onSuccess={handleLogin} onError={(err) => console.log(err)} />
       )}
 
-
-      <h1>Welcome to the Little Log Maze!</h1>
+      <h1 className="welcome-statement">Welcome to the Little Log Maze!</h1>
 
       {/*
       <div className="skeleton-steps">

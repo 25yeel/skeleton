@@ -8,19 +8,20 @@ import Profile from '../pages/Profile';
 import Skeleton from '../pages/Skeleton';
 import Maze from './Maze';
 
-const Navbar = (props) => {
+const Navbar = () => {
+    const { userId, handleLogin, handleLogout } = useContext(UserContext);
     return (
         <nav className='Navbar-container'>
-            <div className='Navbar-title'>Little Log</div>
+            {/* <div className='Navbar-title'>Little Log</div> */}
             <div className='Navbar-links'>
-                <Link to="/">Home</Link>
+                <Link to="/"> Home </Link>
                 {/* <Link to="/profile">Profile</Link> */}
-                {props.userId && (
-                    <Link to={`/profile/${props.userId}`} className="NavBar-link">
-                        Profile
+                {userId && (
+                    <Link to={`/profile/${userId}`} className="NavBar-link">
+                         Profile
                     </Link>
                 )}
-                <Link to="/maze/">Maze</Link>
+                <Link to="/maze/"> Maze </Link>
             </div>
             <div className='Navbar-auth'>
                 {userId ? (

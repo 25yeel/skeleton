@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import { socket } from "../../client-socket.js";
 import { get, post } from "../../utilities";
-import { drawCanvas } from "../../canvasManager";
-import { handleInput } from "../../input";
+// import { drawCanvas } from "../../canvasManager";
+// import { handleInput } from "../../input";
 
 import "../../utilities.css";
 
@@ -39,7 +39,7 @@ const Maze = (props) => {
         } else {
             setWinnerModal(null);
         }
-        drawCanvas(update);
+        // drawCanvas(update);
 
 
     }

@@ -1,12 +1,13 @@
 import React from 'react';
 import "./Profile.css";
-import user from '../../../../server/models/user';
 
 const Profile = (props) => {
+    const { userId, handleLogin, handleLogout } = useContext(UserContext);
     const [user, setUser] = useState();
     useEffect(() => {
         document.title = "Profile Page";
-        get(`/api/user`, {userId: props.userId}).then((userObj) => setUser(userObj));
+        // use userContext/useContext or a get request to get info from backend
+        get(`/api/user`, {userId: userId}).then((userObj) => setUser(userObj));
     }, []);
 
     return (
