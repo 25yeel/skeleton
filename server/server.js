@@ -1,6 +1,7 @@
 /*
 |--------------------------------------------------------------------------
 | server.js -- The core of your server
+| databasename = little-log
 |--------------------------------------------------------------------------
 |
 | This file defines how your server starts up. Think of it as the main() of your server.
@@ -36,9 +37,9 @@ const socketManager = require("./server-socket");
 
 // Server configuration below
 // TODO change connection URL after setting up your team database
-const mongoConnectionURL = process.env.MONGO_SRV;
+const mongoConnectionURL = process.env.myMongoSrv;
 // TODO change database name to the name you chose
-const databaseName = "FILL_ME_IN";
+const databaseName = "little-log";
 
 // mongoose 7 warning
 mongoose.set("strictQuery", false);
@@ -64,7 +65,8 @@ app.use(express.json());
 app.use(
   session({
     // TODO: add a SESSION_SECRET string in your .env file, and replace the secret with process.env.SESSION_SECRET
-    secret: "session-secret",
+    // secret: "session-secret",
+    secret: process.env.sessionSecret,
     resave: false,
     saveUninitialized: false,
   })

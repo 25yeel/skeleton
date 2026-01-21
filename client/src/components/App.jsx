@@ -1,5 +1,5 @@
 import React, { useState, useEffect, createContext } from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, Routes, Route } from "react-router-dom";
 
 import jwt_decode from "jwt-decode";
 
@@ -10,6 +10,10 @@ import { socket } from "../client-socket";
 import { get, post } from "../utilities";
 
 export const UserContext = createContext(null);
+
+import Navbar from "./modules/Navbar";
+import Skeleton from "./pages/Skeleton";
+import Profile from "./pages/Profile";
 
 /**
  * Define the "App" component
@@ -49,8 +53,21 @@ const App = () => {
 
   return (
     <UserContext.Provider value={authContextValue}>
+      {/* <Navbar
+        handleLogin={handleLogin}
+        handleLogout={handleLogout}
+        userId={userId}
+      /> */}
       <Outlet />
     </UserContext.Provider>
+    // <>
+    // <Navbar handleLogin={handleLogin} handleLogout={handleLogout} userId={userId} />
+    //   <div className="App-container">
+    //     <Router>
+    //       <Profile path="/profile/:userId"/>
+    //     </Router>
+    //   </div>
+    // </>
   );
 };
 
