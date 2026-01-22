@@ -11,6 +11,7 @@ import "../../utilities.css";
 
 // Process updates from maze-logic in Maze.jsx
 const Maze = (props) => {
+    const { userId, handleLogin, handleLogout } = useContext(UserContext);
     const [winnerModal, setWinnerModal] = useState(null);
 
     useEffect(() => {
@@ -19,7 +20,7 @@ const Maze = (props) => {
         // remove event listener on unmount
         return () => {
             window.removeEventListener("keydown", handleInput);
-            post("/api/despawn", { userid: props.userId});
+            post("/api/despawn", { userid: userId});
         };
     }, []);
 

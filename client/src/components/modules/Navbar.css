@@ -25,4 +25,5 @@
 .Navbar-links {
     color: var(--white);
     font-size: 20px;
+    text-align: center;
 }

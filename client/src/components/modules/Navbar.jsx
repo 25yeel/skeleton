@@ -16,7 +16,8 @@ const Navbar = () => {
             <div className='Navbar-links'>
                 <Link to="/"> Home </Link>
                 {userId && (
-                    <Link to={`/profile/${userId}`} className="NavBar-link">
+                    // <Link to={`/profile`} className="NavBar-link">
+                    <Link to='/profile' className="NavBar-link">
                     Profile
                     </Link>
                 )}
