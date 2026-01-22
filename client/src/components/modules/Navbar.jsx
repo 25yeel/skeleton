@@ -15,21 +15,22 @@ const Navbar = () => {
             {/* <div className='Navbar-title'>Little Log</div> */}
             <div className='Navbar-links'>
                 <Link to="/"> Home </Link>
-                {/* <Link to="/profile">Profile</Link> */}
                 {userId && (
                     <Link to={`/profile/${userId}`} className="NavBar-link">
-                         Profile
+                    Profile
                     </Link>
                 )}
+
                 <Link to="/maze/"> Maze </Link>
             </div>
-            <div className='Navbar-auth'>
+            {/* <div className='Navbar-auth'>
                 {userId ? (
                     <button onClick={handleLogout}>Logout</button>
                 ) : (
                     <button onClick={handleLogin}>Login</button>
                 )}
-            </div>
+            </div> */}
+
         </nav>
 
     );

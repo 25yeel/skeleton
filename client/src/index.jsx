@@ -1,4 +1,5 @@
-import React from "react";
+import React, {useContext} from "react";
+import { UserContext } from "./components/App";
 import ReactDOM from "react-dom/client";
 import App from "./components/App";
 import Skeleton from "./components/pages/Skeleton";
@@ -20,11 +21,15 @@ import { GoogleOAuthProvider } from '@react-oauth/google';
 //TODO: REPLACE WITH YOUR OWN CLIENT_ID
 const GOOGLE_CLIENT_ID = "406378486796-rpb1mha7rjuhh0h32vhjngoothur4vl8.apps.googleusercontent.com";
 
+// const { userId, handleLogin, handleLogout } = useContext(UserContext);
+
 const router = createBrowserRouter(
+
   createRoutesFromElements(
     <Route errorElement={<NotFound />} element={<App />}>
       <Route path="/" element={<Skeleton />}/>
       <Route path="/profile" element={<Profile />} />
+      {/* <Route path={`/profile/${userId}`} element={<Profile />} /> */}
       {/* <Route path="/maze" element={<Maze />} /> */}
     </Route>
   )

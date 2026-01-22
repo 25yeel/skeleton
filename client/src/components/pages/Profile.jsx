@@ -13,8 +13,8 @@ const Profile = (props) => {
     return (
         <>
             <div className='Profile-container'>
-                <img src='wide-tim.webp' alt='wide tim picture'/>
-                {/* <h1>{user.name}</h1> */}
+                <img className='profile-img' src='wide-tim.webp' alt='wide tim picture'/>
+                <h1>{userId}</h1>
                 <h2>Achievements</h2>
             </div>
         </>

@@ -36,11 +36,11 @@ body {
   padding: 0;
   font-family: "Roboto", sans-serif;
   font-weight: 300;
-  background-image: url(./components/assets/mit.jpg);
+  /* background-image: url(./components/assets/mit.jpg);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  height: 100%;
+  height: 100%; */
 }
 
 form {
@@ -92,8 +92,4 @@ form {
 
 .u-link:hover {
   color: var(--primary--dim);
-}
-
-.welcome-statement {
-  color: var(--white);
 }

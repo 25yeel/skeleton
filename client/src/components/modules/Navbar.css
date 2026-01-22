@@ -12,17 +12,15 @@
 
 .Navbar-container {
     padding: var(--s) var(--m);
-    /* background-color: var(--primary); */
+    background-color: var(--primary);
+    font-family: "Playwrite GB J Guides", cursive;
+    font-weight: 400;
+    font-style: normal;
 }
 .Navbar-title {
     color: var(--white);
     font-size: 20px;
-    font-family: "Roboto", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: <weight>;
-    font-style: normal;
-    font-variation-settings:
-        "wdth" 100;
+
 }
 .Navbar-links {
     color: var(--white);
