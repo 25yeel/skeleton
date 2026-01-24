@@ -92,7 +92,7 @@ const Game = () => {
   return (
     <>
       <canvas ref={canvasRef} />
-      <button id="startGame">Start Game</button>
+      <button id="startGame">Generate Maze</button>
     </>
   );
 };
