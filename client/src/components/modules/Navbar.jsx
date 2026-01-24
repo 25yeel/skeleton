@@ -7,7 +7,8 @@ import "./Navbar.css";
 
 import Profile from '../pages/Profile';
 import Skeleton from '../pages/Skeleton';
-import Game from '../pages/Game';
+// import Game from '../pages/Game';
+import Maze from './Maze';
 
 const Navbar = () => {
     const { userId, handleLogin, handleLogout } = useContext(UserContext);

@@ -6,7 +6,8 @@ import Skeleton from "./components/pages/Skeleton";
 import NotFound from "./components/pages/NotFound";
 
 import Profile from "./components/pages/Profile";
-import Game from "./components/pages/Game";
+// import Game from "./components/pages/Game";
+import Maze from "./components/modules/Maze";
 
 import {
   createBrowserRouter,
@@ -28,7 +29,7 @@ const router = createBrowserRouter(
     <Route errorElement={<NotFound />} element={<App />}>
       <Route path="/" element={<Skeleton />}/>
       <Route path="/profile" element={<Profile />} />
-      <Route path="/game" element={<Game />} />
+      <Route path="/game" element={<Maze />} />
 
       {/* <Route path={`/profile/${userId}`} element={<Profile />} /> */}
       {/* <Route path="/maze" element={<Maze />} /> */}
