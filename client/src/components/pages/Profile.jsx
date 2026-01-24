@@ -3,6 +3,7 @@ import "./Profile.css";
 import { UserContext } from '../App';
 import { get, post } from "../../utilities";
 import wideTim from "../assets/wide-tim.webp"
+import { GoogleLogin, googleLogout } from "@react-oauth/google";
 
 const Profile = (props) => {
     const { userId, handleLogin, handleLogout } = useContext(UserContext);
@@ -18,6 +19,18 @@ const Profile = (props) => {
             <div className='Profile-container'>
                 <img className='profile-img' src={wideTim} alt='wide tim image'/>
                 <h1>{userId}</h1>
+                {/* {userId ? (
+                        <button
+                          onClick={() => {
+                            googleLogout();
+                            handleLogout();
+                          }}
+                        >
+                          Logout
+                        </button>
+                      ) : (
+                        <GoogleLogin onSuccess={handleLogin} onError={(err) => console.log(err)} />
+                      )} */}
                 <hr></hr>
             </div>
             <h2>Achievements</h2>

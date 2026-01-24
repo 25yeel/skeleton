@@ -12,7 +12,7 @@ const Skeleton = () => {
   const { userId, handleLogin, handleLogout } = useContext(UserContext);
   return (
     <>
-      {userId ? (
+      {/* {userId ? (
         <button
           onClick={() => {
             googleLogout();
@@ -23,7 +23,7 @@ const Skeleton = () => {
         </button>
       ) : (
         <GoogleLogin onSuccess={handleLogin} onError={(err) => console.log(err)} />
-      )}
+      )} */}
 
       <h1 className="welcome-statement">Welcome to the Little Log Maze!</h1>
 
