@@ -15,7 +15,8 @@ const Profile = (props) => {
     }, []);
 
     return (
-        <body>
+        // <body>
+        <>
             <div className='Profile-container'>
                 <img className='profile-img' src={wideTim} alt='wide tim image'/>
                 <h1>{userId}</h1>
@@ -34,7 +35,8 @@ const Profile = (props) => {
                 <hr></hr>
             </div>
             <h2>Achievements</h2>
-        </body>
+        </>
+        // </body>
         // <>
         // <img src='wide-tim.webp' alt='wide tim picture'/>
         // <h1>{Skeleton.userId}</h1>

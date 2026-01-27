@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Playwrite+GB+J+Guides:ital@0;1&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
-:root {
+/* :root {
     --primary: #396dff;
     --grey: #f7f7f7;
     --white: #fff;
@@ -8,14 +8,15 @@
     --s: 8px;
     --m: 16px;
     --l: 24px;
-}
+} */
 
 .Navbar-container {
     padding: var(--s) var(--m);
-    background-color: var(--primary);
+    background-color: var(--primary--dim);
     font-family: "Playwrite GB J Guides", cursive;
     font-weight: 400;
     font-style: normal;
+    flex-direction: column-reverse;
 }
 .Navbar-title {
     color: var(--white);
@@ -27,3 +28,9 @@
     font-size: 20px;
     text-align: center;
 }
+/* .Navbar-links:link {
+    color: var(--white);
+}
+a:link {
+    color:var(--white);
+} */

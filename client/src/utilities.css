@@ -18,9 +18,10 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
 
 :root {
-  --primary: #396dff;
-  --primary--dim: #6987db;
-  --darkgrey: #d4d4d4;
+  --primary: rgb(163, 31, 52);
+  --primary--dim: rgba(163, 31, 53, 0.599);
+  --darkgrey: #rgb(138, 139, 140);
+  --engineers--red: #B20D35;
   --medgrey: #e0e0e0;
   --grey: #f7f7f7;
   --white: #fff;
@@ -36,11 +37,11 @@ body {
   padding: 0;
   font-family: "Roboto", sans-serif;
   font-weight: 300;
-  /* background-image: url(./components/assets/mit.jpg);
+  background-image: url(./components/assets/mitbirdseye.jpg);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  height: 100%; */
+  height: 100%;
 }
 
 form {
@@ -85,11 +86,11 @@ form {
 }
 
 .u-link {
-  color: var(--primary);
+  color: var(--white);
   text-decoration: none;
   cursor: pointer;
 }
 
 .u-link:hover {
-  color: var(--primary--dim);
+  color: var(--medgrey);
 }
