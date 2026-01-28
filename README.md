@@ -98,3 +98,4 @@ vite.config.js
 ## Killian Ct doors image from https://climate.mit.edu/sites/default/files/post-images/MIT_Building_10_1.jpg
 ## beaver img from https://th.bing.com/th/id/R.ed3db62d25f878e096a3bfffacfbc0c7?rik=hgyo%2fotcRwOgIA&pid=ImgRaw&r=0
 ## cog img from https://static.vecteezy.com/system/resources/thumbnails/045/984/350/small_2x/rusty-metal-cog-against-transparent-background-png.png
+## diploma img from https://png.pngtree.com/png-vector/20230912/ourmid/pngtree-diploma-3d-render-png-image_10021659.png

@@ -2,6 +2,7 @@ import { useMazeGame } from "./game-logic";
 import "./Maze.css";
 
 import beaverImg from "../assets/beaver.png";
+import diplomaImg from "../assets/diploma.png";
 import cogImg from "../assets/cog.png";
 import doorImg from "../assets/door.jpg";
 import killiandoorImg from "../assets/killiandoors.jpg";
@@ -73,7 +74,7 @@ const Maze = () => {
                 </div>
             )}
 
-            <h2>Move the beaver to the cog!</h2>
+            <h2>Solve the maze to receive your diploma!</h2>
 
             <div id="maze-container">
                 <div id="maze-accessories">
@@ -86,7 +87,7 @@ const Maze = () => {
                         }}
                     />
 
-                    <img src={cogImg} id="cog" alt="cog"
+                    <img src={diplomaImg} id="cog" alt="cog"
                         style={{
                             width: cell_size + "px",
                             height: "auto",
