@@ -14,16 +14,28 @@ export const useMazeGame = () => {
     // Quiz spots configuration
     const quizSpots = {
         "2-5": {
-            question: "What is 2 + 2?",
-            answer: "4"
+            question: "How many smoots is Harvard Bridge?",
+            answer: ["364.4", "364", "365", "364 plus or minus an ear"]
         },
-        "3-7": {
-            question: "What is the capital of Massachusetts?",
-            answer: "boston"
+        "5-6": {
+            question: "What is course 12?",
+            answer: "earth, atmospheric, and planetary sciences"
         },
-        "5-10": {
+        "3-10": {
+            question: "In what city is MIT located?",
+            answer: ["cambridge", "cambridge, ma", "cambridge, massachusetts"]
+        },
+        "10-2": {
             question: "What year was MIT founded?",
             answer: "1861"
+        },
+        "10-18": {
+            question: "What is one of the activities that must be completed to receive a pirate's license",
+            answer: ["pistol", "pistol shooting", "archery", "fencing"]
+        },
+        "10-2": {
+            question: "What class year do MIT students receive their brass rat ring?",
+            answer: ["sophomore year", "2nd year", "sophomore", "2", "2nd yr", "sophomore yr"]
         }
     };
 
@@ -164,7 +176,28 @@ export const useMazeGame = () => {
     // Handle quiz submission
     const handleQuizSubmit = (e) => {
         e.preventDefault();
+        if (Array.isArray(currentQuiz.answer)) {
+            for(let i=0; i<currentQuiz.answer.length; i++){
+                if (quizAnswer.toLowerCase().trim() === currentQuiz.answer[i].toLowerCase()) {
+                    const [newR, newC] = currentQuiz.position.split('-').map(Number);
+                    const { r, c } = beaverPos;
 
+                    const newMaze = maze.map((row) => [...row]);
+                    newMaze[r][c] = 1;
+                    newMaze[newR][newC] = 2;
+                    setMaze(newMaze);
+                    setBeaverPos({ r: newR, c: newC });
+
+                    revealAroundPosition(newR, newC);
+
+                    setUnlockedSpots(prev => new Set([...prev, currentQuiz.position]));
+                    setIsQuizActive(false);
+                    setCurrentQuiz(null);
+                    setQuizAnswer("");
+                    alert("Correct! You may pass.");
+                }
+            }
+        }
         if (quizAnswer.toLowerCase().trim() === currentQuiz.answer.toLowerCase()) {
             const [newR, newC] = currentQuiz.position.split('-').map(Number);
             const { r, c } = beaverPos;
