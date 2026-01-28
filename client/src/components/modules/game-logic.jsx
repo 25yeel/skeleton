@@ -192,7 +192,7 @@ export const useMazeGame = () => {
     // Handle quiz submission
     const handleQuizSubmit = (e) => {
         e.preventDefault();
-        correct_ans = false;
+        let correct_ans = false;
         if (Array.isArray(currentQuiz.answer)) { // there are multiple possible correct answers in array
             for(let i=0; i<currentQuiz.answer.length; i++){
                 if (quizAnswer.toLowerCase().trim() === currentQuiz.answer[i].toLowerCase()) {
