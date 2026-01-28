@@ -243,7 +243,8 @@ const Maze = () => {
                 <p id="bldg6" style={{top: cell_size*5+"px", left: cell_size*19.5+"px"}}>6</p>
                 <p id="bldg4" style={{top: cell_size*5+"px", left: cell_size*15.5+"px"}}>4</p>
                 <p id="bldg2" style={{top: cell_size*10+"px", left: cell_size*19.5+"px"}}>2</p>
-
+                <p id="uac" style={{top: cell_size+"px", left: cell_size*3+"px"}}>UAC</p>
+                <p id="dmse" style={{top: cell_size+"px", left: cell_size*17+"px"}}>DMSE breakerspace</p>
                 </>}
                 </div>
 

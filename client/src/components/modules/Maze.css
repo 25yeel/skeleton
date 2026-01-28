@@ -89,3 +89,7 @@ h2 {
 #bldg5, #bldg3, #bldg1, #bldg6, #bldg4, #bldg2 {
     position: absolute;
 }
+#uac, #dmse, #barker {
+    position: absolute;
+    color: var(--engineers--red);
+}
