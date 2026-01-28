@@ -14,12 +14,12 @@ export const useMazeGame = () => {
     // Quiz spots configuration
     const quizSpots = {
         "2-5": {
-            question: "How many smoots is Harvard Bridge?",
-            answer: ["364.4", "364", "365", "364 plus or minus an ear"]
+            question: "How many smoots is the Harvard Bridge?",
+            answer: ["364.4", "364", "365", "364 plus or minus an ear", "364 plus minus an ear"]
         },
         "5-6": {
             question: "What is course 12?",
-            answer: ["earth, atmospheric, and planetary sciences"]
+            answer: ["earth, atmospheric, and planetary sciences", "earth atmospheric and planetary sciences", "earth atmospheric planetary sciences"]
         },
         "3-10": {
             question: "In what city is MIT located?",
