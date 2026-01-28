@@ -92,4 +92,9 @@ vite.config.js
 
 ## Good luck on your project :)
 
-## background image from https://wallpaperaccess.com/mit-university
+## Wide Tim image from https://www.openspace.mit.edu/calendar/lunch-break-with-wide-tim
+## MIT background image from https://i.pinimg.com/originals/c0/85/1a/c0851ac8686cd0a49e147c9c54df1511.jpg
+## Door image from https://tse1.mm.bing.net/th/id/OIP.32V5BmDvJPg47tkTOsjnqQHaLG?rs=1&pid=ImgDetMain&o=7&rm=3
+## Killian Ct doors image from https://climate.mit.edu/sites/default/files/post-images/MIT_Building_10_1.jpg
+## beaver img from https://th.bing.com/th/id/R.ed3db62d25f878e096a3bfffacfbc0c7?rik=hgyo%2fotcRwOgIA&pid=ImgRaw&r=0
+## cog img from https://static.vecteezy.com/system/resources/thumbnails/045/984/350/small_2x/rusty-metal-cog-against-transparent-background-png.png

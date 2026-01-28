@@ -3,6 +3,20 @@
   margin: 0;
   padding: 0;
 } */
+:root {
+  --primary: rgb(163, 31, 52);
+  --primary--dim: rgba(163, 31, 53, 0.599);
+  --darkgrey: rgb(138, 139, 140);
+  --engineers--red: #B20D35;
+  --medgrey: #e0e0e0;
+  --grey: #f7f7f7;
+  --white: #fff;
+
+  --xs: 4px;
+  --s: 8px;
+  --m: 16px;
+  --l: 24px;
+}
 
 body {
   /* background-color: rgb(222, 75, 75); */
@@ -19,6 +33,12 @@ h1 {
   /* color: white; */
   margin-bottom: 20px;
   /* font-family: "Courier New", Courier, monospace; */
+}
+
+h2 {
+    color: var(--engineers--red);
+    text-shadow: -1px -1px 0 var(--darkgrey), 1px -1px 0 var(--darkgrey),
+                -1px 1px 0 var(--darkgrey), 1px 1px 0 var(--darkgrey);
 }
 
 #maze-container {

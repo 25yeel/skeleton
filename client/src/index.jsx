@@ -7,7 +7,8 @@ import NotFound from "./components/pages/NotFound";
 
 import Profile from "./components/pages/Profile";
 // import Game from "./components/pages/Game";
-import Maze from "./components/modules/Maze";
+import Maze from "./components/modules/game";
+// import Maze from "./components/modules/game-test";
 
 import {
   createBrowserRouter,

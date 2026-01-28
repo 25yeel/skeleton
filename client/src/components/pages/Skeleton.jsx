@@ -29,7 +29,7 @@ const Skeleton = () => {
       )} */}
 
       <h1 className="welcome-statement">Welcome to the Little Log Maze!</h1>
-      <button onClick={() => navigate("/game")}>Start Game</button>
+      <button onClick={() => navigate("/game")} id="start-btn">START GAME</button>
       {/*
       <div className="skeleton-steps">
       <h1>Good luck on your project :)</h1>

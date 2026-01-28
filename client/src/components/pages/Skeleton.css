@@ -1,6 +1,16 @@
 /* Fill me in :) */
+@import url('https://fonts.googleapis.com/css2?family=Monofett&family=Playwrite+GB+J+Guides:ital@0;1&family=Press+Start+2P&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
 .welcome-statement {
   color: var(--white);
   text-align: center;
+}
+#start-btn {
+    font-family: "Press Start 2P", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 20px;
+    padding: 12px 24px;
+    border-radius: 6px;
+    cursor: pointer;
 }
