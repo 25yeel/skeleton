@@ -192,9 +192,11 @@ export const useMazeGame = () => {
     // Handle quiz submission
     const handleQuizSubmit = (e) => {
         e.preventDefault();
+        correct_ans = false;
         if (Array.isArray(currentQuiz.answer)) { // there are multiple possible correct answers in array
             for(let i=0; i<currentQuiz.answer.length; i++){
                 if (quizAnswer.toLowerCase().trim() === currentQuiz.answer[i].toLowerCase()) {
+                    correct_ans = true;
                     const [newR, newC] = currentQuiz.position.split('-').map(Number);
                     const { r, c } = beaverPos;
 
@@ -214,7 +216,7 @@ export const useMazeGame = () => {
                 }
             }
         }
-        else {
+        if (correct_ans === false) {
             alert("Incorrect answer. Try again!");
             setQuizAnswer("");
         }
