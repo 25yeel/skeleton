@@ -36,6 +36,22 @@ export const useMazeGame = () => {
         "10-2": {
             question: "What class year do MIT students receive their brass rat ring?",
             answer: ["sophomore year", "2nd year", "sophomore", "2", "2nd yr", "sophomore yr"]
+        },
+        "2-15": {
+            question: "What is course 9?",
+            answer: "brain and cognitive sciences"
+        },
+        "7-15": {
+            question: "Who is MIT's mascot?",
+            answer: ["tim the beaver", "tim"]
+        },
+        "10-18": {
+            question: "Where can you find a pool on MIT's campus?",
+            answer: ["the z", "the zesiger center", "zesiger", "the z center", "alumni", "alumni center"]
+        },
+        "13-19": {
+            question: "In what building number can you find MIT's banana lounge?",
+            answer: "26"
         }
     };
 
