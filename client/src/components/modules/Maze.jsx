@@ -7,7 +7,7 @@ import cogImg from "../assets/cog.png";
 import doorImg from "../assets/door.jpg";
 import killiandoorImg from "../assets/killiandoors.jpg";
 
-
+// Base maze code (no trivia or 'accessories' added)
 const Maze = () => {
     const cell_size = 50;
     const [myLevel, setMyLevel] = useState(null);
