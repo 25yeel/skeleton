@@ -176,7 +176,7 @@ export const useMazeGame = () => {
 
                 if (newR === cogPos.r && newC === cogPos.c) {
                     if (myLevel === "mit") {
-                        alert("Congratulations! You've made it through MIT's main campus!");
+                        alert("Congratulations! You've made it through MIT's main building!");
                     } else {
                         alert("Congratulations! You've solved the maze!");
                     }
