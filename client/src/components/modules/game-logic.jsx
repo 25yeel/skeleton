@@ -34,7 +34,7 @@ export const useMazeGame = () => {
             answer: ["pistol", "pistol shooting", "archery", "fencing"]
         },
         "10-2": {
-            question: "What class year do MIT students receive their brass rat ring?",
+            question: "During which class year do MIT students receive their brass rat ring?",
             answer: ["sophomore year", "2nd year", "sophomore", "2", "2nd yr", "sophomore yr"]
         },
         "2-15": {
