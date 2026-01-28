@@ -3,6 +3,9 @@ body {
 }
 .Profile-container {
     color: var(--white);
+    text-shadow: -1px -1px 0 black, 1px -1px 0 black,
+                -1px 1px 0 black, 1px 1px 0 black;
+
 }
 .profile-img {
     border-radius: 50%;

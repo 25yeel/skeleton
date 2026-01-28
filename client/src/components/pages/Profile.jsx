@@ -33,7 +33,7 @@ const Profile = (props) => {
                         <GoogleLogin onSuccess={handleLogin} onError={(err) => console.log(err)} />
                       )} */}
                 {/* Display number of times solved mazes:  */}
-                <h3>Achievements: {achievements}</h3>
+                <h3>Mazes solved: {achievements}</h3>
             </div>
         </>
         // </body>
