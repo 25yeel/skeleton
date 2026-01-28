@@ -51,7 +51,7 @@ export const useMazeGame = () => {
         },
         "13-19": {
             question: "In what building number can you find MIT's banana lounge?",
-            answer: ["26"]
+            answer: ["26", "twenty six", "twenty-six"]
         }
     };
 
