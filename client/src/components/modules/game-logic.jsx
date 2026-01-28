@@ -19,7 +19,7 @@ export const useMazeGame = () => {
         },
         "5-6": {
             question: "What is course 12?",
-            answer: "earth, atmospheric, and planetary sciences"
+            answer: ["earth, atmospheric, and planetary sciences"]
         },
         "3-10": {
             question: "In what city is MIT located?",
@@ -27,7 +27,7 @@ export const useMazeGame = () => {
         },
         "10-2": {
             question: "What year was MIT founded?",
-            answer: "1861"
+            answer: ["1861"]
         },
         "10-18": {
             question: "What is one of the activities that must be completed to receive a pirate's license",
@@ -39,7 +39,7 @@ export const useMazeGame = () => {
         },
         "2-15": {
             question: "What is course 9?",
-            answer: "brain and cognitive sciences"
+            answer: ["brain and cognitive sciences"]
         },
         "7-15": {
             question: "Who is MIT's mascot?",
@@ -51,7 +51,7 @@ export const useMazeGame = () => {
         },
         "13-19": {
             question: "In what building number can you find MIT's banana lounge?",
-            answer: "26"
+            answer: ["26"]
         }
     };
 
@@ -192,7 +192,7 @@ export const useMazeGame = () => {
     // Handle quiz submission
     const handleQuizSubmit = (e) => {
         e.preventDefault();
-        if (Array.isArray(currentQuiz.answer)) {
+        if (Array.isArray(currentQuiz.answer)) { // there are multiple possible correct answers in array
             for(let i=0; i<currentQuiz.answer.length; i++){
                 if (quizAnswer.toLowerCase().trim() === currentQuiz.answer[i].toLowerCase()) {
                     const [newR, newC] = currentQuiz.position.split('-').map(Number);
@@ -214,24 +214,7 @@ export const useMazeGame = () => {
                 }
             }
         }
-        if (quizAnswer.toLowerCase().trim() === currentQuiz.answer.toLowerCase()) {
-            const [newR, newC] = currentQuiz.position.split('-').map(Number);
-            const { r, c } = beaverPos;
-
-            const newMaze = maze.map((row) => [...row]);
-            newMaze[r][c] = 1;
-            newMaze[newR][newC] = 2;
-            setMaze(newMaze);
-            setBeaverPos({ r: newR, c: newC });
-
-            revealAroundPosition(newR, newC);
-
-            setUnlockedSpots(prev => new Set([...prev, currentQuiz.position]));
-            setIsQuizActive(false);
-            setCurrentQuiz(null);
-            setQuizAnswer("");
-            alert("Correct! You may pass.");
-        } else {
+        else {
             alert("Incorrect answer. Try again!");
             setQuizAnswer("");
         }
