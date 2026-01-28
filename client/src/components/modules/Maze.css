@@ -37,8 +37,8 @@ h1 {
 
 h2 {
     color: var(--engineers--red);
-    text-shadow: -1px -1px 0 var(--darkgrey), 1px -1px 0 var(--darkgrey),
-                -1px 1px 0 var(--darkgrey), 1px 1px 0 var(--darkgrey);
+    text-shadow: -1px -1px 0 var(--grey), 1px -1px 0 var(--grey),
+                -1px 1px 0 var(--grey), 1px 1px 0 var(--grey);
 }
 
 #maze-container {
