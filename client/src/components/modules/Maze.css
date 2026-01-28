@@ -31,6 +31,8 @@ h1 {
   border-radius: 10px;
 }
 
+#maze-accessories {}
+
 .row {
   display: flex;
 }
@@ -54,4 +56,16 @@ h1 {
   position: absolute;
   /* bottom: 0;
   right: 0; */
+}
+#door1, #door2, #door3, #door4, #door10 {
+    position: absolute;
+}
+#lobby7, #lobby10 {
+    position: absolute;
+}
+#killian, #duPont, #lowell {
+    position: absolute;
+}
+#bldg5, #bldg3, #bldg1, #bldg6, #bldg4, #bldg2 {
+    position: absolute;
 }

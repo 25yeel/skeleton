@@ -40,7 +40,7 @@ body {
   background-image: url(./components/assets/mitbirdseye.jpg);
   background-position: center;
   background-size: cover;
-  background-repeat: no-repeat;
+  /* background-repeat: no-repeat; */
   height: 100%;
 }
 

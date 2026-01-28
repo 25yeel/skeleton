@@ -6,20 +6,20 @@ import wideTim from "../assets/wide-tim.webp"
 import { GoogleLogin, googleLogout } from "@react-oauth/google";
 
 const Profile = (props) => {
-    const { userId, handleLogin, handleLogout } = useContext(UserContext);
+    const { userId, handleLogin, handleLogout, achievements } = useContext(UserContext);
     const [user, setUser] = useState();
     useEffect(() => {
         document.title = "Profile Page";
-        // use userContext/useContext or a get request to get info from backend
-        get(`/api/user`, {userId: userId}).then((userObj) => setUser(userObj));
-    }, []);
+
+        get(`/api/whoami`, {userId: userId}).then((userObj) => setUser(userObj));
+    }, [userId]);
 
     return (
         // <body>
         <>
             <div className='Profile-container'>
                 <img className='profile-img' src={wideTim} alt='wide tim image'/>
-                <h1>{userId}</h1>
+                <h1>{user?.name}</h1>
                 {/* {userId ? (
                         <button
                           onClick={() => {
@@ -32,9 +32,8 @@ const Profile = (props) => {
                       ) : (
                         <GoogleLogin onSuccess={handleLogin} onError={(err) => console.log(err)} />
                       )} */}
-                <hr></hr>
+                <h3>Achievements: {achievements}</h3>
             </div>
-            <h2>Achievements</h2>
         </>
         // </body>
         // <>

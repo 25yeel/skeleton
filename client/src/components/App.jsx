@@ -20,6 +20,7 @@ import Navbar from "./modules/Navbar";
  */
 const App = () => {
   const [userId, setUserId] = useState(undefined);
+  const [achievements, setAchievements] = useState(0);
 
   useEffect(() => {
     get("/api/whoami").then((user) => {
@@ -49,6 +50,8 @@ const App = () => {
     userId,
     handleLogin,
     handleLogout,
+    achievements,
+    setAchievements
   };
 
   return (

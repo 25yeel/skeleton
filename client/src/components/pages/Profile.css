@@ -2,7 +2,7 @@ body {
     text-align: center;
 }
 .Profile-container {
-
+    color: var(--white);
 }
 .profile-img {
     border-radius: 50%;

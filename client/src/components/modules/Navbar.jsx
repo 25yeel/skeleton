@@ -16,27 +16,28 @@ const Navbar = () => {
         <nav className='Navbar-container'>
             {/* <div className='Navbar-title'>Little Log</div> */}
             <div className='Navbar-links'>
+
+                <Link to="/" className='Navbar-link'> Home </Link>
+                {userId && (
+                    // <Link to={`/profile`} className="NavBar-link">
+                    <Link to='/profile' className='Navbar-link'>
+                    Profile
+                    </Link>
+                )}
+
+                <Link to="/game" className='Navbar-link'> Game </Link>
                 {userId ? (
                     <button
                     onClick={() => {
                         googleLogout();
                         handleLogout();
                     }}
-                    >
+                    className='btn'>
                     Logout
                     </button>
                 ) : (
                     <GoogleLogin onSuccess={handleLogin} onError={(err) => console.log(err)} />
                 )}
-                <Link to="/"> Home </Link>
-                {userId && (
-                    // <Link to={`/profile`} className="NavBar-link">
-                    <Link to='/profile'>
-                    Profile
-                    </Link>
-                )}
-
-                <Link to="/game"> Game </Link>
             </div>
             {/* <div className='Navbar-auth'>
                 {userId ? (

@@ -1,19 +1,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Playwrite+GB+J+Guides:ital@0;1&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Monofett&family=Playwrite+GB+J+Guides:ital@0;1&family=Press+Start+2P&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
-/* :root {
-    --primary: #396dff;
-    --grey: #f7f7f7;
-    --white: #fff;
-    --xs: 4px;
-    --s: 8px;
-    --m: 16px;
-    --l: 24px;
-} */
+:root {
+  --primary: rgb(163, 31, 52);
+  --primary--dim: rgba(163, 31, 53, 0.599);
+  --darkgrey: #rgb(138, 139, 140);
+  --engineers--red: #B20D35;
+  --medgrey: #e0e0e0;
+  --grey: #f7f7f7;
+  --white: #fff;
+
+  --xs: 4px;
+  --s: 8px;
+  --m: 16px;
+  --l: 24px;
+}
+
 
 .Navbar-container {
     padding: var(--s) var(--m);
-    background-color: var(--primary--dim);
-    font-family: "Playwrite GB J Guides", cursive;
+    background-color: var(--primary);
+    font-family: "Press Start 2P", system-ui;
     font-weight: 400;
     font-style: normal;
     flex-direction: column-reverse;
@@ -23,14 +30,18 @@
     font-size: 20px;
 
 }
-.Navbar-links {
+.Navbar-link {
     color: var(--white);
     font-size: 20px;
     text-align: center;
+    text-decoration: none;
 }
-/* .Navbar-links:link {
+.btn {
     color: var(--white);
+    background-color: var(--primary);
+    border: none;
+    font-family: "Press Start 2P", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 20px;
 }
-a:link {
-    color:var(--white);
-} */

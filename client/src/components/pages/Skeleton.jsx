@@ -1,15 +1,18 @@
 import React, { useContext } from "react";
 import { GoogleLogin, googleLogout } from "@react-oauth/google";
+import { useNavigate } from "react-router-dom";
 
 import "../../utilities.css";
 import "./Skeleton.css";
 import { UserContext } from "../App";
 
 // import Navbar from "../modules/Navbar";
-
+import Maze from "../modules/Maze";
 
 const Skeleton = () => {
   const { userId, handleLogin, handleLogout } = useContext(UserContext);
+  const navigate = useNavigate();
+
   return (
     <>
       {/* {userId ? (
@@ -26,7 +29,7 @@ const Skeleton = () => {
       )} */}
 
       <h1 className="welcome-statement">Welcome to the Little Log Maze!</h1>
-
+      <button onClick={() => navigate("/game")}>Start Game</button>
       {/*
       <div className="skeleton-steps">
       <h1>Good luck on your project :)</h1>

@@ -1,9 +1,17 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
+import { UserContext } from "../App";
 import "./Maze.css";
-import beaverImg from "../assets/beaver.png"
+
+import beaverImg from "../assets/beaver.png";
 import cogImg from "../assets/cog.png";
+import doorImg from "../assets/door.jpg";
+import killiandoorImg from "../assets/killiandoors.jpg";
+
 
 const Maze = () => {
+    const cell_size = 50;
+    const [myLevel, setMyLevel] = useState(null);
+
     const level1 = [
         [1, 0, 1, 0],
         [1, 1, 1, 1],
@@ -38,11 +46,12 @@ const Maze = () => {
         [1,1,1,1,1,1,1,1,1],
         [0,1,0,0,0,1,0,0,0],
         [0,1,0,1,0,1,0,1,1],
-        [0,1,0,1,0,1,0,1,1],
+        [0,1,0,1,0,1,1,1,1],
         [0,1,0,0,0,1,0,1,1],
         [0,1,1,1,1,1,0,1,1],
         [0,1,0,0,0,0,0,1,1],
         [0,1,0,1,1,1,1,1,1],
+        [0,1,1,1,1,1,1,1,1],
         [0,1,0,1,1,1,1,1,1],
         [0,1,0,0,0,0,0,1,1],
         [0,1,1,1,1,1,0,1,1],
@@ -54,7 +63,8 @@ const Maze = () => {
         [1,1,1],
         [1,1,1],
         [1,1,1],
-        [0,0,0],
+        [1,1,1],
+        [1,1,1],
         [1,1,1],
         [1,1,1],
         [1,1,1],
@@ -67,8 +77,7 @@ const Maze = () => {
         [1,1,1]
     ]
     const levelmit = [];
-
-    for (let i=0; i<mitleft.length; i++){
+    for (let i=0; i<mitleft.length; i++){ //build mit main campus
         levelmit.push([]);
         for (let j=0; j<mitleft[i].length; j++){
             levelmit[i].push(mitleft[i][j]);
@@ -80,113 +89,176 @@ const Maze = () => {
             levelmit[i].push(mitright[i][j]);
         }
     }
-  const [maze, setMaze] = useState(level1);
-  const [beaverPos, setBeaverPos] = useState({ r: 0, c: 0 });
-  const [cogPos, setCogPos] = useState({r: maze.length - 1, c: maze.length-1});
 
-  useEffect(() => {
-    const handleKeyDown = (e) => {
-      let { r, c } = beaverPos;
-      let newR = r;
-      let newC = c;
+    const [maze, setMaze] = useState(level1);
+    const [beaverPos, setBeaverPos] = useState({ r: 0, c: 0 });
+    const [cogPos, setCogPos] = useState({r: maze.length - 1, c: maze.length-1});
+    const { achievements, setAchievements } = useContext(UserContext);
 
-      if (e.key === "ArrowRight") newC++;
-      if (e.key === "ArrowLeft") newC--;
-      if (e.key === "ArrowUp") newR--;
-      if (e.key === "ArrowDown") newR++;
+    useEffect(() => {
+        const handleKeyDown = (e) => {
+        let { r, c } = beaverPos;
+        let newR = r;
+        let newC = c;
 
-      if (
-        maze[newR] &&
-        maze[newR][newC] === 1
-      ) {
-        const newMaze = maze.map((row) => [...row]);
-        newMaze[r][c] = 1;
-        newMaze[newR][newC] = 2;
-        setMaze(newMaze);
-        setBeaverPos({ r: newR, c: newC });
-      }
+        if (e.key === "ArrowRight") newC++;
+        if (e.key === "ArrowLeft") newC--;
+        if (e.key === "ArrowUp") newR--;
+        if (e.key === "ArrowDown") newR++;
+
+        if (
+            maze[newR] &&
+            maze[newR][newC] === 1
+        ) {
+            const newMaze = maze.map((row) => [...row]);
+            newMaze[r][c] = 1;
+            newMaze[newR][newC] = 2;
+            setMaze(newMaze);
+            setBeaverPos({ r: newR, c: newC });
+
+        // if (beaverPos.r === cogPos.r && beaverPos.c === cogPos.c) {
+        if (newR === cogPos.r && newC === cogPos.c) {
+        if (myLevel==="mit") {alert("Congratulations! You've made it through MIT's main campus!");}
+        else {alert("Congratulations! You've solved the maze!");}
+        setAchievements(a => a+1);
+        }
+
+        }
     };
 
-    if (beaverPos.r === cogPos.r && beaverPos.c === cogPos.c) {
-        alert("You win!");
-    }
+
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
 
-  }, [beaverPos, maze, cogPos]);
+    }, [beaverPos, maze, cogPos, myLevel, setAchievements]);
 
+    const changeLevel = (e) => {
+        const value = e.target.value;
+        let selected;
 
-  const changeLevel = (e) => {
-    const value = e.target.value;
-    let selected;
+        if (value === "1") selected = level1;
+        if (value === "2") selected = level2;
+        if (value === "3") selected = level3;
+        if (value === "mit") selected = levelmit;
+        setMyLevel(value);
 
-    if (value === "1") selected = level1;
-    if (value === "2") selected = level2;
-    if (value === "3") selected = level3;
-    if (value === "mit") selected = levelmit;
+        const freshMaze = selected.map((row) => [...row]);
+        const rows = selected.length;
+        const cols = selected[0].length;
 
-    const freshMaze = selected.map((row) => [...row]);
-    const rows = selected.length;
-    const cols = selected[0].length;
+        if (value === "mit") { // change the initial pos of the beaver if in mit maze
+            freshMaze[2][0] = 2;
+            setMaze(freshMaze);
+            setBeaverPos({r:2, c:0});
+            setCogPos({r:rows-2, c:cols-6});
+        }
+        else {
+            freshMaze[0][0] = 2;
+            setMaze(freshMaze);
+            setBeaverPos({ r: 0, c: 0 });
+            setCogPos({r: rows-1, c: cols-1});
+        }
 
-    if (value === "mit") { // change the initial pos of the beaver if in mit maze
-        freshMaze[2][0] = 2;
-        setMaze(freshMaze);
-        setBeaverPos({r:2, c:0});
-        setCogPos({r:rows-2, c:cols-2});
-    }
-    else {
-        freshMaze[0][0] = 2;
-        setMaze(freshMaze);
-        setBeaverPos({ r: 0, c: 0 });
-        setCogPos({r: rows-1, c: cols-1});
-    }
+    };
 
-  };
+    return (
+        <div>
+            <select onChange={changeLevel}>
+                <option value="1">Level 1</option>
+                <option value="2">Level 2</option>
+                <option value="3">Level 3</option>
+                <option value="mit">Main campus</option>
+            </select>
 
-  return (
-    <div>
-      <select onChange={changeLevel}>
-        <option value="1">Level 1</option>
-        <option value="2">Level 2</option>
-        <option value="3">Level 3</option>
-        <option value="mit">Level MIT</option>
-      </select>
+            <div id="maze-container">
+                <div id="maze-accessories">
+                <img src={beaverImg} id="beaver" alt="beaver"
+                    style={{
+                        width: cell_size + "px",
+                        height: "auto",
+                        top: beaverPos.r * cell_size,
+                        left: beaverPos.c * cell_size,
+                    }}
+                />
 
-      <div id="maze-container">
-        <img
-          src={beaverImg}
-          id="beaver"
-          alt="beaver"
-          style={{
-            width: "50px",
-            height: "auto",
-            top: beaverPos.r * 50,
-            left: beaverPos.c * 50,
-          }}
-        />
+                <img src={cogImg} id="cog" alt="cog"
+                    style={{
+                        width: cell_size + "px",
+                        height: "auto",
+                        top: cogPos.r * cell_size,
+                        left: cogPos.c * cell_size,
+                    }}
+                />
+                {myLevel==="mit" && <>
+                {/* doors */}
+                <img src={doorImg} id="door1" alt="door"
+                style={{
+                    width: cell_size + "px",
+                    height: cell_size + "px",
+                    top: 10*cell_size,
+                    left: 2*cell_size,
+                }}
+                />
+                <img src={doorImg} id="door2" alt="door"
+                style={{
+                    width: cell_size + "px",
+                    height: cell_size + "px",
+                    top: 10*cell_size,
+                    left: (levelmit[10].length-3)*cell_size,
+                }}
+                />
+                <img src={doorImg} id="door3" alt="door"
+                style={{
+                    width: cell_size + "px",
+                    height: cell_size + "px",
+                    top: 5*cell_size,
+                    left: 6*cell_size,
+                }}
+                />
+                <img src={doorImg} id="door4" alt="door"
+                style={{
+                    width: cell_size + "px",
+                    height: cell_size + "px",
+                    top: 5*cell_size,
+                    left: (levelmit[5].length-7)*cell_size,
+                }}
+                />
+                <img src={killiandoorImg} id="door10" alt="door"
+                style={{
+                    width: 3*cell_size + "px",
+                    height: cell_size + "px",
+                    top: 3*cell_size,
+                    left: 9*cell_size,
+                }}
+                />
+                {/* building labels */}
+                <p id="lobby7" style={{top: cell_size*2+"px", left: cell_size+"px"}}>Lobby 7</p>
+                <p id="lobby10" style={{top: cell_size+"px", left: cell_size*10+"px"}}>Lobby 10 </p>
+                <p id="killian" style={{top: cell_size*6.5+"px", left: cell_size*10+"px"}}>Killian Ct</p>
+                <p id="duPont" style={{top: cell_size*10+"px", left: cell_size*4.5+"px"}}>duPont Ct</p>
+                <p id="lowell" style={{top: cell_size*10+"px", left: cell_size*15+"px"}}>Lowell Ct</p>
+                <p id="bldg5" style={{top: cell_size*5+"px", left: cell_size*1.5+"px"}}>5</p>
+                <p id="bldg3" style={{top: cell_size*5+"px", left: cell_size*5.5+"px"}}>3</p>
+                <p id="bldg1" style={{top: cell_size*10+"px", left: cell_size*1.5+"px"}}>1</p>
+                <p id="bldg6" style={{top: cell_size*5+"px", left: cell_size*19.5+"px"}}>6</p>
+                <p id="bldg4" style={{top: cell_size*5+"px", left: cell_size*15.5+"px"}}>4</p>
+                <p id="bldg2" style={{top: cell_size*10+"px", left: cell_size*19.5+"px"}}>2</p>
 
-        <img src={cogImg} id="cog" alt="cog"
-        style={{
-            width: "50px",
-            height: "auto",
-            top: cogPos.r * 50,
-            left: cogPos.c * 50,
-        }}
-        />
+                </>}
+                </div>
 
-        {maze.map((row, r) => (
-          <div className="row" key={r}>
-            {row.map((cell, c) => (
-              <div
-                key={c}
-                className={`cell ${cell === 0 ? "wall" : ""}`}
-              />
-            ))}
-          </div>
-        ))}
-      </div>
-    </div>
-  );
+                {maze.map((row, r) => (
+                <div className="row" key={r}>
+                    {row.map((cell, c) => (
+                    <div
+                        key={c}
+                        className={`cell ${cell === 0 ? "wall" : ""}`}
+                    />
+                    ))}
+                </div>
+                ))}
+            </div>
+        </div>
+    );
 }
 export default Maze;
